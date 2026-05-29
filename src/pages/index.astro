@@ -1,0 +1,454 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header";
+import Hero from "../components/Hero";
+import ServicesSection from "../components/ServicesSection";
+import ProblemSolution from "../components/ProblemSolution";
+import ProcessSteps from "../components/ProcessSteps";
+import StatsTestimonials from "../components/StatsTestimonials";
+import CTASection from "../components/CTASection";
+import FAQSection from "../components/FAQSection";
+
+const features = [
+  {
+    eyebrow: "Invoice Generator",
+    headline: "Professional invoices in seconds.",
+    body: "Create professional PDF invoices in seconds. Choose from 5 designed templates: Classic, Modern, Minimal, Bold, or Elegant. Set your brand color, add your logo, select a bank account, and send. Need to bill an international client? Toggle on IBAN, Incoterms, HS codes, Tax ID, Governing Law, and Retention of Title, all per invoice.",
+    callouts: [
+      "5 professional PDF templates",
+      "12 optional international compliance fields",
+      "Auto-fill line items from saved projects",
+      "Shareable invoice link, no client login needed",
+      "12 currency options (USD, EUR, GBP, BDT + more)",
+    ],
+    videoId: "sBOVbHHJaFI",
+    videoTitle: "Pofolio Invoice Generator Demo",
+    flip: false,
+  },
+  {
+    eyebrow: "Client & Project Management",
+    headline: "Every client. Every project. In view.",
+    body: "Your full client directory in one place. See every client's total invoiced, total paid, outstanding balance, and monthly retainer at a glance. Projects track status, service lists with individual pricing, and connect directly to invoices.",
+    callouts: [
+      "Client profiles with full financial history",
+      "Company records with logo upload",
+      "Projects feed directly into invoice quick-fill",
+      "4 project statuses with service-level pricing",
+    ],
+    videoId: "sBOVbHHJaFI",
+    videoTitle: "Pofolio Client & Project Management Demo",
+    flip: true,
+  },
+  {
+    eyebrow: "Website Vault",
+    headline: "Every credential. One click.",
+    body: "Stop hunting through email threads for a client's WordPress password. The Website Vault stores every credential in one searchable list: admin URL, login email, username, password, and hosting provider. Passwords are masked by default.",
+    callouts: [
+      "Masked passwords, click-to-reveal",
+      "Copy individual fields or everything at once",
+      "Searchable by client, URL, email, or hosting provider",
+      "No third-party password manager needed",
+    ],
+    videoId: "sBOVbHHJaFI",
+    videoTitle: "Pofolio Website Vault Demo",
+    flip: false,
+  },
+  {
+    eyebrow: "Built-In Portfolio",
+    headline: "Your portfolio updates itself.",
+    body: "Pofolio generates a public portfolio page directly from your app data. Completed projects become your work showcase. Submitted client reviews become your testimonials. Visitors can browse your work and submit a project inquiry.",
+    callouts: [
+      "Auto-built from your real project data",
+      "Live testimonials from client reviews",
+      "Client logo carousel from company records",
+      "Embedded Discovery Form for inbound leads",
+    ],
+    videoId: "sBOVbHHJaFI",
+    videoTitle: "Pofolio Portfolio Demo",
+    flip: true,
+  },
+  {
+    eyebrow: "Discovery Form + Price Estimator",
+    headline: "Leads that qualify themselves.",
+    body: "Share your public Discovery Form before you even talk. They fill in project type, features, budget, location, and timeline. You get all of that in your Inquiries inbox the moment they submit.",
+    callouts: [
+      "Public form, no login required for clients",
+      "Real-time price estimate shown as they fill it",
+      "Submissions appear instantly in your Inquiries inbox",
+      "Internal estimator for quoting new projects",
+    ],
+    videoId: "sBOVbHHJaFI",
+    videoTitle: "Pofolio Discovery Form Demo",
+    flip: false,
+  },
+  {
+    eyebrow: "Maintenance Plans",
+    headline: "Recurring revenue. Zero spreadsheets.",
+    body: "Track every website maintenance contract in one list. Set the client, price, currency, and billing status. Add a custom checklist per plan. When it's time to bill, hit Bill Now.",
+    callouts: [
+      "Active / Paused / Cancelled statuses",
+      "Custom task checklist per plan",
+      "One-click invoice generation",
+      "Monthly retainer total on your Dashboard",
+    ],
+    videoId: "sBOVbHHJaFI",
+    videoTitle: "Pofolio Maintenance Plans Demo",
+    flip: true,
+  },
+];
+
+const comparison = [
+  ["Professional invoice PDFs", "5 templates", "Basic", "Limited", "Manual"],
+  ["International compliance (IBAN, Incoterms, HS codes)", "Built-in", "Partial", "No", "DIY"],
+  ["Website credential vault", "Built-in", "No", "No", "No"],
+  ["Public portfolio page", "Built-in", "No", "No", "No"],
+  ["Client Discovery Form", "Built-in", "No", "Basic", "DIY"],
+  ["Shareable invoice link (no login)", "Built-in", "No", "No", "No"],
+  ["Testimonial request links", "Built-in", "No", "No", "No"],
+  ["Maintenance plan billing", "Built-in", "No", "Partial", "DIY"],
+  ["Built for freelancers", "Yes", "No", "Partial", "No"],
+  ["Setup required", "None", "Moderate", "Moderate", "Extensive"],
+];
+
+const highlightValues = new Set(["Built-in", "Yes", "None", "5 templates"]);
+
+const pricingFree = [
+  "Dashboard with financial overview",
+  "Client and company management",
+  "Project tracking",
+  "Invoice generator (Classic template)",
+  "Invoice archive with status management",
+  "Shareable invoice links",
+  "Website Vault",
+  "Maintenance plan tracking",
+  "Discovery Form (public)",
+  "Price Estimator",
+  "Testimonials + Review Form",
+  "Public Portfolio page",
+  "Cloud sync + offline fallback",
+];
+
+const pricingPro = [
+  "Everything in Free",
+  "All 5 invoice PDF templates",
+  "Modern, Minimal, Bold, and Elegant templates",
+  "Advanced international compliance fields",
+  "Priority support",
+];
+
+
+const marqueeKeywords = [
+  "Invoice Generator", "Client Management", "Website Vault", "Portfolio Builder",
+  "Discovery Form", "Price Estimator", "Maintenance Plans", "Testimonials",
+  "12 Currencies", "5 PDF Templates", "Cloud Sync", "Offline Mode",
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Pofolio replaces your invoicing tool, portfolio site, client spreadsheet, and password manager with one dashboard. Built for freelance web designers, developers, and creative agencies."
+    />
+    <title>Pofolio: The All-in-One Business OS for Freelancers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+
+    <!-- Header island -->
+    <Header client:load />
+
+    <main>
+
+      <!-- Hero island -->
+      <Hero client:load />
+
+      <!-- Marquee -->
+      <div style="background:#18181b; padding:1.25rem 0; overflow:hidden; border-top:1px solid rgba(255,255,255,0.06);">
+        <div class="marquee-track" style="display:flex; gap:2.5rem; width:max-content;">
+          {[...marqueeKeywords, ...marqueeKeywords].map((kw) => (
+            <span
+              style="display:inline-flex; align-items:center; gap:0.625rem; font-size:0.875rem; font-weight:600; color:rgba(255,255,255,0.45); white-space:nowrap;"
+            >
+              <span style="display:inline-block; width:0.375rem; height:0.375rem; border-radius:9999px; background:#87E64B; flex-shrink:0;"></span>
+              {kw}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Services island -->
+      <ServicesSection client:visible />
+
+      <!-- Feature showcase (static Astro, restyled) -->
+      <section style="background:#ffffff;">
+        <div style="background:oklch(0.97 0 0); padding:5rem 0 4rem; border-top:1px solid #e4e4e7; position:relative; overflow:hidden;">
+          <!-- Grid pattern -->
+          <div style="position:absolute; inset:0; pointer-events:none; background-image:linear-gradient(to right,#80808012 1px,transparent 1px),linear-gradient(to bottom,#80808012 1px,transparent 1px); background-size:24px 24px; mask-image:radial-gradient(ellipse 60% 50% at 50% 50%,#000 70%,transparent 100%);"></div>
+          <div class="section-shell text-center" style="position:relative; z-index:1;">
+            <p class="eyebrow-hand" style="margin-bottom:0.5rem;">Feature deep-dives</p>
+            <h2 style="font-size:clamp(2rem,5vw,3.75rem); font-weight:700; color:#18181b; letter-spacing:-0.02em; line-height:1.1; margin:0 0 1rem;">
+              See every feature<br/><span style="color:#87E64B;">in action.</span>
+            </h2>
+            <p style="font-size:1.125rem; color:#71717a; line-height:1.75; max-width:36rem; margin:0 auto;">
+              Each tool in Pofolio is purpose-built for how freelancers actually work — not adapted from accounting software.
+            </p>
+          </div>
+        </div>
+
+        {features.map((feature, index) => (
+          <div style={`background:${index % 2 !== 0 ? "oklch(0.97 0 0)" : "#ffffff"}; border-top:1px solid #e4e4e7; padding:5rem 0;`}>
+            <div
+              class="section-shell"
+              style={`display:grid; gap:3.5rem; align-items:center; ${feature.flip ? "" : ""}`}
+              class:list={["lg:grid-cols-2"]}
+            >
+              <!-- Text side -->
+              <div style={feature.flip ? "order:2;" : ""}>
+                <p style="font-family:var(--font-hand); font-size:1.25rem; font-weight:500; color:#87E64B; margin-bottom:0.75rem;">
+                  {feature.eyebrow}
+                </p>
+                <h3 style="font-size:clamp(1.5rem,3vw,2rem); font-weight:700; letter-spacing:-0.02em; color:#18181b; line-height:1.2; margin:0 0 1rem;">
+                  {feature.headline}
+                </h3>
+                <p style="line-height:1.75; color:#71717a; margin:0 0 1.5rem;">{feature.body}</p>
+                <ul style="display:grid; gap:0.625rem; list-style:none; padding:0; margin:0;">
+                  {feature.callouts.map((c) => (
+                    <li style="display:flex; align-items:flex-start; gap:0.625rem; font-size:0.875rem; font-weight:600; color:#18181b; line-height:1.6;">
+                      <span style="margin-top:0.2rem; width:1rem; height:1rem; flex-shrink:0; border-radius:9999px; background:rgba(135,230,75,0.2); display:flex; align-items:center; justify-content:center;">
+                        <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                          <path d="M1.5 4.5l1.5 1.5 3.5-3.5" stroke="#3f6212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                      </span>
+                      {c}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <!-- Video side -->
+              <div
+                style={`position:relative; overflow:hidden; border-radius:1.5rem; border:1px solid #e4e4e7; box-shadow:0 2px 16px rgba(0,0,0,0.06); aspect-ratio:1/1; background:#f9f9fb; ${feature.flip ? "order:1;" : ""}`}
+              >
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${feature.videoId}?rel=0&modestbranding=1`}
+                  title={feature.videoTitle}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                  loading="lazy"
+                  style="position:absolute; inset:0; width:100%; height:100%; border:0;"
+                />
+              </div>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      <!-- Problem / Solution island -->
+      <ProblemSolution client:visible />
+
+      <!-- Stats + Testimonials island -->
+      <StatsTestimonials client:visible />
+
+      <!-- Process Steps island -->
+      <ProcessSteps client:visible />
+
+      <!-- Comparison table (static Astro, restyled) -->
+      <section style="background:oklch(0.97 0 0); border-top:1px solid #e4e4e7; padding:6rem 0;">
+        <div class="section-shell">
+          <p class="eyebrow-hand pb-2">Why Pofolio</p>
+          <h2 style="font-size:clamp(2rem,4vw,3rem); font-weight:700; letter-spacing:-0.02em; color:#18181b; line-height:1.1; margin:0 0 3rem;">
+            Built for freelancers.<br/>Not for accountants.
+          </h2>
+          <div style="overflow-x:auto; border-radius:1.5rem; border:1px solid #e4e4e7; background:#ffffff; box-shadow:0 2px 16px rgba(0,0,0,0.06);">
+            <table style="width:100%; min-width:620px; font-size:0.875rem; border-collapse:collapse;">
+              <thead>
+                <tr style="border-bottom:1px solid #e4e4e7;">
+                  <th style="padding:1rem; text-align:left; font-family:var(--font-mono); font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#a1a1aa;"></th>
+                  <th style="padding:1rem; text-align:center; font-family:var(--font-mono); font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#18181b;">Pofolio</th>
+                  <th style="padding:1rem; text-align:center; font-family:var(--font-mono); font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#a1a1aa;">FreshBooks / Wave</th>
+                  <th style="padding:1rem; text-align:center; font-family:var(--font-mono); font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#a1a1aa;">Bonsai / HoneyBook</th>
+                  <th style="padding:1rem; text-align:center; font-family:var(--font-mono); font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#a1a1aa;">Notion / Airtable</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparison.map((row) => (
+                  <tr style="border-bottom:1px solid #f4f4f5;" class="hover:bg-zinc-50 transition-colors">
+                    <td style="padding:1rem; font-weight:600; color:#18181b;">{row[0]}</td>
+                    <td style="padding:1rem; text-align:center;">
+                      <span
+                        style={`border-radius:9999px; padding:0.2rem 0.75rem; font-size:0.75rem; font-weight:700; ${highlightValues.has(row[1]) ? "background:#87E64B; color:#18181b;" : "background:#f4f4f5; color:#71717a;"}`}
+                      >
+                        {row[1]}
+                      </span>
+                    </td>
+                    <td style="padding:1rem; text-align:center; color:#71717a;">{row[2]}</td>
+                    <td style="padding:1rem; text-align:center; color:#71717a;">{row[3]}</td>
+                    <td style="padding:1rem; text-align:center; color:#71717a;">{row[4]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing -->
+      <section id="pricing" style="background:#ffffff; padding:6rem 0;">
+        <div class="section-shell">
+          <p class="eyebrow-hand pb-2">Pricing</p>
+          <h2 style="font-size:clamp(2rem,4vw,3rem); font-weight:700; letter-spacing:-0.02em; color:#18181b; line-height:1.1; margin:0 0 1rem;">
+            Start free. Upgrade when you're ready.
+          </h2>
+          <p style="max-width:36rem; line-height:1.75; color:#71717a; margin:0 0 3.5rem;">
+            No subscription required to get started. The core tools are free. Upgrade to Pro for all 5 invoice templates.
+          </p>
+
+          <div style="display:grid; gap:1.5rem;" class="md:grid-cols-2 lg:gap-8">
+            <!-- Free -->
+            <div style="border-radius:2rem; border:1px solid #e4e4e7; background:#fafafa; padding:2rem;">
+              <p style="font-family:var(--font-mono); font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#a1a1aa;">Free</p>
+              <div style="margin-top:0.75rem; display:flex; align-items:flex-end; gap:0.5rem;">
+                <strong style="font-size:3rem; font-weight:700; color:#18181b; line-height:1;">$0</strong>
+                <span style="margin-bottom:0.25rem; font-weight:600; color:#a1a1aa;">/ forever</span>
+              </div>
+              <a href="https://trypofolio.com" class="btn-outline" style="margin-top:1.5rem; display:block; width:100%; text-align:center;">
+                Start for Free
+              </a>
+              <ul style="margin-top:1.75rem; display:grid; gap:0.75rem; list-style:none; padding:0;">
+                {pricingFree.map((item) => (
+                  <li style="display:flex; align-items:flex-start; gap:0.625rem; font-size:0.875rem; font-weight:600; color:#18181b;">
+                    <span style="margin-top:0.15rem; width:1rem; height:1rem; flex-shrink:0; border-radius:9999px; background:rgba(135,230,75,0.2); display:flex; align-items:center; justify-content:center;">
+                      <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                        <path d="M1.5 4.5l1.5 1.5 3.5-3.5" stroke="#3f6212" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Pro -->
+            <div style="border-radius:2rem; border:1px solid #18181b; background:#0a0a0a; padding:2rem; box-shadow:0 8px 32px rgba(0,0,0,0.18);">
+              <div style="display:flex; align-items:center; justify-content:space-between;">
+                <p style="font-family:var(--font-mono); font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.4);">Pro</p>
+                <span style="border-radius:9999px; background:#87E64B; color:#18181b; padding:0.2rem 0.75rem; font-size:0.75rem; font-weight:700;">Recommended</span>
+              </div>
+              <div style="margin-top:0.75rem; display:flex; align-items:flex-end; gap:0.5rem;">
+                <strong style="font-size:3rem; font-weight:700; color:#ffffff; line-height:1;">TBD</strong>
+                <span style="margin-bottom:0.25rem; font-weight:600; color:rgba(255,255,255,0.35);">/ month</span>
+              </div>
+              <a
+                href="https://trypofolio.com"
+                class="btn-brand"
+                style="margin-top:1.5rem; display:block; width:100%; text-align:center;"
+              >
+                Upgrade to Pro
+              </a>
+              <ul style="margin-top:1.75rem; display:grid; gap:0.75rem; list-style:none; padding:0;">
+                {pricingPro.map((item) => (
+                  <li style="display:flex; align-items:flex-start; gap:0.625rem; font-size:0.875rem; font-weight:600; color:rgba(255,255,255,0.8);">
+                    <span style="margin-top:0.15rem; width:1rem; height:1rem; flex-shrink:0; border-radius:9999px; background:rgba(135,230,75,0.2); display:flex; align-items:center; justify-content:center;">
+                      <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                        <path d="M1.5 4.5l1.5 1.5 3.5-3.5" stroke="#87E64B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p style="margin-top:2rem; border-top:1px solid rgba(255,255,255,0.08); padding-top:1.25rem; font-size:0.75rem; line-height:1.6; color:rgba(255,255,255,0.3);">
+                Pricing TBD, set before launch. Early access users will receive launch pricing.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ island -->
+      <FAQSection client:visible />
+
+      <!-- CTA island -->
+      <CTASection client:visible />
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="background:#0a0a0a; padding:4rem 0 2.5rem;">
+      <div class="section-shell">
+        <div style="display:grid; gap:2.5rem;" class="sm:grid-cols-2 lg:grid-cols-4">
+          <div class="sm:col-span-2 lg:col-span-1">
+            <a href="#" style="display:inline-flex; align-items:center; gap:0.625rem; text-decoration:none;">
+              <span style="display:grid; place-items:center; width:2.25rem; height:2.25rem; border-radius:0.5rem; background:#87E64B; color:#18181b; font-weight:900; font-size:1rem;">P</span>
+              <span style="font-weight:900; color:#f4f4f5; font-size:1.0625rem;">Pofolio</span>
+            </a>
+            <p style="margin-top:0.875rem; max-width:16rem; font-size:0.875rem; line-height:1.7; color:rgba(255,255,255,0.4);">
+              The all-in-one business operating system built for freelancers.
+            </p>
+          </div>
+
+          <div>
+            <h4 style="font-family:var(--font-mono); font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.25); margin-bottom:1rem;">Product</h4>
+            <ul style="display:grid; gap:0.625rem; list-style:none; padding:0; margin:0; font-size:0.875rem; font-weight:500;">
+              <li><a href="#features" style="color:rgba(255,255,255,0.5); transition:color 0.15s;" onmouseover="this.style.color='#87E64B'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Features</a></li>
+              <li><a href="#pricing" style="color:rgba(255,255,255,0.5); transition:color 0.15s;" onmouseover="this.style.color='#87E64B'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Pricing</a></li>
+              <li><a href="https://trypofolio.com/portfolio" style="color:rgba(255,255,255,0.5); transition:color 0.15s;" onmouseover="this.style.color='#87E64B'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Portfolio (demo)</a></li>
+              <li><a href="https://trypofolio.com/discovery" style="color:rgba(255,255,255,0.5); transition:color 0.15s;" onmouseover="this.style.color='#87E64B'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Discovery Form (demo)</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 style="font-family:var(--font-mono); font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.25); margin-bottom:1rem;">Company</h4>
+            <ul style="display:grid; gap:0.625rem; list-style:none; padding:0; margin:0; font-size:0.875rem; font-weight:500;">
+              <li><a href="#" style="color:rgba(255,255,255,0.5); transition:color 0.15s;" onmouseover="this.style.color='#87E64B'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">About</a></li>
+              <li><a href="#" style="color:rgba(255,255,255,0.5); transition:color 0.15s;" onmouseover="this.style.color='#87E64B'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 style="font-family:var(--font-mono); font-size:0.65rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.25); margin-bottom:1rem;">Legal</h4>
+            <ul style="display:grid; gap:0.625rem; list-style:none; padding:0; margin:0; font-size:0.875rem; font-weight:500;">
+              <li><a href="#" style="color:rgba(255,255,255,0.5); transition:color 0.15s;" onmouseover="this.style.color='#87E64B'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Privacy Policy</a></li>
+              <li><a href="#" style="color:rgba(255,255,255,0.5); transition:color 0.15s;" onmouseover="this.style.color='#87E64B'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          style="margin-top:3rem; display:flex; flex-direction:column; gap:1rem; border-top:1px solid rgba(255,255,255,0.07); padding-top:2rem; font-size:0.8125rem; font-weight:500; color:rgba(255,255,255,0.25);"
+          class="sm:flex-row sm:items-center sm:justify-between"
+        >
+          <span>© 2026 Pofolio. All rights reserved.</span>
+          <div style="display:flex; gap:1.5rem;">
+            <a href="#" style="color:rgba(255,255,255,0.35); transition:color 0.15s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">LinkedIn</a>
+            <a href="#" style="color:rgba(255,255,255,0.35); transition:color 0.15s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">GitHub</a>
+            <a href="#" style="color:rgba(255,255,255,0.35); transition:color 0.15s;" onmouseover="this.style.color='#ffffff'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Twitter / X</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      import Lenis from '@studio-freight/lenis';
+      const lenis = new Lenis({ duration: 1.2, smoothWheel: true });
+      function raf(time: number) { lenis.raf(time); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', (e) => {
+          e.preventDefault();
+          const target = document.querySelector((anchor as HTMLAnchorElement).getAttribute('href')!);
+          if (target) lenis.scrollTo(target as HTMLElement, { offset: -80 });
+        });
+      });
+    </script>
+
+  </body>
+</html>

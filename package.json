@@ -1,0 +1,32 @@
+{
+  "name": "pofolio-landing-page",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "set ASTRO_TELEMETRY_DISABLED=1&& astro dev",
+    "build": "set ASTRO_TELEMETRY_DISABLED=1&& astro check && astro build",
+    "preview": "set ASTRO_TELEMETRY_DISABLED=1&& astro preview",
+    "check": "set ASTRO_TELEMETRY_DISABLED=1&& astro check"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@astrojs/react": "^5.0.6",
+    "@studio-freight/lenis": "^1.0.42",
+    "@tailwindcss/vite": "^4.1.17",
+    "@types/react": "^19.2.15",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^6.3.3",
+    "framer-motion": "^12.40.0",
+    "lucide-react": "^1.17.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "tailwindcss": "^4.1.17",
+    "tailwindcss-animate": "^1.0.7",
+    "three": "^0.184.0",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/three": "^0.184.1"
+  }
+}
