@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(npx skills *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Skill(tdd)",
+      "Bash(npm install *)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "supabase"
+  ]
+}
