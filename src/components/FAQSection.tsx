@@ -12,8 +12,8 @@ function FAQItem({ faq }: { faq: FAQ }) {
       variants={fadeUpBlur}
       className="rounded-[1.5rem] overflow-hidden"
       style={{
-        border: `1px solid ${open ? "rgba(135,230,75,0.35)" : "#e4e4e7"}`,
-        background: open ? "rgba(135,230,75,0.03)" : "#fafafa",
+        border: `1px solid ${open ? "rgba(135,230,75,0.35)" : "var(--color-border)"}`,
+        background: open ? "rgba(135,230,75,0.03)" : "var(--color-muted)",
         transition: "border-color 0.3s, background 0.3s",
       }}
     >
@@ -23,7 +23,7 @@ function FAQItem({ faq }: { faq: FAQ }) {
         style={{ padding: "1.375rem 1.5rem", cursor: "pointer", background: "transparent", border: "none" }}
         aria-expanded={open}
       >
-        <span style={{ fontSize: "1rem", fontWeight: 700, color: "#18181b", lineHeight: 1.4 }}>
+        <span className="text-foreground" style={{ fontSize: "1rem", fontWeight: 700, lineHeight: 1.4 }}>
           {faq.q}
         </span>
         <motion.span
@@ -33,12 +33,13 @@ function FAQItem({ faq }: { faq: FAQ }) {
             flexShrink: 0,
             width: "1.75rem", height: "1.75rem",
             borderRadius: "9999px",
-            background: open ? "#87E64B" : "#f4f4f5",
+            background: open ? "var(--color-primary)" : "var(--color-muted)",
+            color: open ? "var(--color-foreground)" : "var(--color-muted-fg)",
             display: "flex", alignItems: "center", justifyContent: "center",
             transition: "background 0.25s",
           }}
         >
-          <Plus size={14} color={open ? "#18181b" : "#71717a"} strokeWidth={2.5} />
+          <Plus size={14} strokeWidth={2.5} />
         </motion.span>
       </button>
 
@@ -52,12 +53,11 @@ function FAQItem({ faq }: { faq: FAQ }) {
             transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
             style={{ overflow: "hidden" }}
           >
-            <p style={{
+            <p className="text-muted-fg" style={{
               padding: "0 1.5rem 1.375rem",
               margin: 0,
               fontSize: "0.9375rem",
               lineHeight: 1.75,
-              color: "#71717a",
             }}>
               {faq.a}
             </p>
@@ -70,7 +70,7 @@ function FAQItem({ faq }: { faq: FAQ }) {
 
 export default function FAQSection() {
   return (
-    <section id="faq" className="py-24 md:py-32" style={{ background: "oklch(0.97 0 0)", borderTop: "1px solid #e4e4e7" }}>
+    <section id="faq" className="py-24 md:py-32" style={{ background: "var(--color-muted)", borderTop: "1px solid var(--color-border)" }}>
       <div className="section-shell">
         {/* Heading */}
         <motion.div
@@ -85,10 +85,10 @@ export default function FAQSection() {
           </motion.p>
           <motion.h2
             variants={fadeUpBlur}
+            className="text-foreground"
             style={{
               fontSize: "clamp(2rem, 5vw, 3.75rem)",
               fontWeight: 700,
-              color: "#18181b",
               letterSpacing: "-0.02em",
               lineHeight: 1.1,
               paddingBottom: "1rem",
@@ -96,7 +96,7 @@ export default function FAQSection() {
           >
             Got questions?<br />We've got answers.
           </motion.h2>
-          <motion.p variants={fadeUpBlur} style={{ fontSize: "1.125rem", color: "#71717a", lineHeight: 1.75 }}>
+          <motion.p variants={fadeUpBlur} className="text-muted-fg" style={{ fontSize: "1.125rem", lineHeight: 1.75 }}>
             Everything you need to know before getting started.
           </motion.p>
         </motion.div>

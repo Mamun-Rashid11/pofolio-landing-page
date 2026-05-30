@@ -63,10 +63,7 @@ export default function ProblemSolution() {
             }}
           >
             <div className="flex items-center gap-3">
-              <span
-                className="px-3 py-1 rounded-full text-xs font-bold"
-                style={{ background: "#fee2e2", color: "#dc2626" }}
-              >
+              <span className="px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-600">
                 Before Pofolio
               </span>
             </div>
@@ -74,14 +71,14 @@ export default function ProblemSolution() {
               {problems.map((p) => (
                 <li key={p.tool} className="flex items-start gap-3">
                   <span
-                    className="mt-0.5 w-5 h-5 flex-shrink-0 flex items-center justify-center rounded-full"
-                    style={{ background: "rgba(220,38,38,0.12)", color: "#dc2626" }}
+                    className="mt-0.5 w-5 h-5 flex-shrink-0 flex items-center justify-center rounded-full text-red-600"
+                    style={{ background: "rgba(220,38,38,0.12)" }}
                   >
                     <X size={12} strokeWidth={2.5} />
                   </span>
                   <div>
-                    <p style={{ margin: 0, fontSize: "0.9375rem", fontWeight: 700, color: "#18181b" }}>{p.tool}</p>
-                    <p style={{ margin: "0.25rem 0 0", fontSize: "0.875rem", lineHeight: 1.6, color: "#71717a" }}>{p.pain}</p>
+                    <p className="text-foreground" style={{ margin: 0, fontSize: "0.9375rem", fontWeight: 700 }}>{p.tool}</p>
+                    <p className="text-muted-fg" style={{ margin: "0.25rem 0 0", fontSize: "0.875rem", lineHeight: 1.6 }}>{p.pain}</p>
                   </div>
                 </li>
               ))}
@@ -100,8 +97,8 @@ export default function ProblemSolution() {
           >
             <div className="flex items-center gap-3">
               <span
-                className="px-3 py-1 rounded-full text-xs font-bold"
-                style={{ background: "rgba(135,230,75,0.2)", color: "#3f6212" }}
+                className="px-3 py-1 rounded-full text-xs font-bold text-lime-900"
+                style={{ background: "rgba(135,230,75,0.2)" }}
               >
                 With Pofolio
               </span>
@@ -110,22 +107,21 @@ export default function ProblemSolution() {
               {solutions.map((s) => (
                 <div
                   key={s.feature}
-                  className="flex items-start gap-3 p-4 rounded-2xl"
+                  className="flex items-start gap-3 p-4 rounded-2xl bg-white"
                   style={{
-                    background: "#ffffff",
                     border: "1px solid rgba(135,230,75,0.2)",
                     boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
                   }}
                 >
                   <span
-                    className="mt-0.5 w-5 h-5 flex-shrink-0 flex items-center justify-center rounded-full"
-                    style={{ background: "rgba(135,230,75,0.2)", color: "#3f6212" }}
+                    className="mt-0.5 w-5 h-5 flex-shrink-0 flex items-center justify-center rounded-full text-lime-900"
+                    style={{ background: "rgba(135,230,75,0.2)" }}
                   >
                     <Check size={12} strokeWidth={2.5} />
                   </span>
                   <div>
-                    <p style={{ margin: 0, fontSize: "0.9375rem", fontWeight: 700, color: "#18181b" }}>{s.feature}</p>
-                    <p style={{ margin: "0.25rem 0 0", fontSize: "0.875rem", lineHeight: 1.6, color: "#71717a" }}>{s.benefit}</p>
+                    <p className="text-foreground" style={{ margin: 0, fontSize: "0.9375rem", fontWeight: 700 }}>{s.feature}</p>
+                    <p className="text-muted-fg" style={{ margin: "0.25rem 0 0", fontSize: "0.875rem", lineHeight: 1.6 }}>{s.benefit}</p>
                   </div>
                 </div>
               ))}

@@ -58,26 +58,20 @@ export default function ServicesSection() {
               >
                 <div className="flex items-start justify-between mb-6">
                   {/* Icon box */}
-                  <div
-                    className="w-12 h-12 flex items-center justify-center rounded-2xl transition-transform duration-500 group-hover:rotate-12"
-                    style={{ background: "#87E64B", color: "#18181b" }}
-                  >
+                  <div className="w-12 h-12 flex items-center justify-center rounded-2xl transition-transform duration-500 group-hover:rotate-12 bg-primary text-primary-fg">
                     <Icon size={20} />
                   </div>
                   {/* Index badge */}
-                  <span
-                    className="px-3 py-1 border rounded-lg text-xs font-mono"
-                    style={{ borderColor: "#e4e4e7", color: "#a1a1aa" }}
-                  >
+                  <span className="px-3 py-1 border rounded-lg text-xs font-mono border-border text-zinc-400">
                     {f.index}
                   </span>
                 </div>
 
                 <div className="flex-1">
-                  <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#18181b", marginBottom: "0.75rem" }}>
+                  <h3 className="text-foreground" style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "0.75rem" }}>
                     {f.title}
                   </h3>
-                  <p style={{ fontSize: "0.9375rem", color: "#71717a", lineHeight: 1.65 }}>
+                  <p className="text-muted-fg" style={{ fontSize: "0.9375rem", lineHeight: 1.65 }}>
                     {f.desc}
                   </p>
                 </div>
@@ -87,8 +81,7 @@ export default function ServicesSection() {
                   {f.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 border rounded-full text-xs font-semibold transition-colors duration-200 group-hover:border-[#87E64B]"
-                      style={{ borderColor: "#e4e4e7", color: "#71717a" }}
+                      className="px-3 py-1 border rounded-full text-xs font-semibold transition-colors duration-200 text-muted-fg border-border group-hover:border-[#87E64B]"
                     >
                       {tag}
                     </span>

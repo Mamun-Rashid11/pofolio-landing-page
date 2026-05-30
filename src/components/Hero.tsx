@@ -39,28 +39,28 @@ export default function Hero() {
           {/* H1 */}
           <motion.h1
             variants={fadeUpBlur}
+            className="text-foreground"
             style={{
               fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
               fontWeight: 700,
               lineHeight: 1.05,
               letterSpacing: "-0.02em",
-              color: "#18181b",
               marginTop: "0.75rem",
             }}
           >
             Run your freelance business{" "}
-            <span style={{ color: "#87E64B" }}>from one tab.</span>
+            <span className="text-primary">from one tab.</span>
           </motion.h1>
 
           {/* Description */}
           <motion.p
             variants={fadeUpBlur}
+            className="text-muted-fg"
             style={{
               maxWidth: "38rem",
               margin: "1.25rem auto 0",
               fontSize: "1.125rem",
               lineHeight: 1.75,
-              color: "#71717a",
             }}
           >
             Clients, invoices, credentials, and portfolio. All in one workspace
@@ -89,7 +89,7 @@ export default function Hero() {
           </motion.div>
 
           {/* Trust line — tight under buttons */}
-          <motion.p variants={fadeUpBlur} style={{ fontSize: "0.8125rem", fontWeight: 600, color: "#a1a1aa", marginTop: "0.875rem" }}>
+          <motion.p variants={fadeUpBlur} className="text-zinc-400" style={{ fontSize: "0.8125rem", fontWeight: 600, marginTop: "0.875rem" }}>
             No credit card required · Free plan available
           </motion.p>
 
@@ -102,16 +102,16 @@ export default function Hero() {
               gap: "1.5rem",
               maxWidth: "28rem",
               margin: "2.5rem auto 0",
-              borderTop: "1px solid #e4e4e7",
+              borderTop: "1px solid var(--color-border)",
               paddingTop: "2rem",
             }}
           >
             {stats.map((s) => (
               <div key={s.label}>
-                <strong style={{ display: "block", fontSize: "2.25rem", fontWeight: 700, color: "#18181b", lineHeight: 1 }}>
+                <strong className="text-foreground" style={{ display: "block", fontSize: "2.25rem", fontWeight: 700, lineHeight: 1 }}>
                   {s.value}
                 </strong>
-                <span style={{ display: "block", marginTop: "0.25rem", fontSize: "0.8125rem", fontWeight: 600, color: "#71717a" }}>
+                <span className="text-muted-fg" style={{ display: "block", marginTop: "0.25rem", fontSize: "0.8125rem", fontWeight: 600 }}>
                   {s.label}
                 </span>
               </div>
@@ -134,9 +134,9 @@ export default function Hero() {
               overflow: "hidden",
               aspectRatio: "16/9",
               borderRadius: "1.25rem",
-              border: "1px solid #e4e4e7",
+              border: "1px solid var(--color-border)",
               boxShadow: "0 2px 32px rgba(0,0,0,0.10), 0 24px 64px rgba(0,0,0,0.08)",
-              background: "#f9f9fb",
+              background: "var(--color-muted)",
             }}
           >
             <iframe
@@ -158,7 +158,7 @@ export default function Hero() {
           style={{
             width: "1.5rem", height: "2.5rem",
             borderRadius: "9999px",
-            border: "2px solid #e4e4e7",
+            border: "2px solid var(--color-border)",
             display: "flex", alignItems: "flex-start", justifyContent: "center",
             padding: "0.25rem",
           }}
@@ -166,7 +166,7 @@ export default function Hero() {
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            style={{ width: "0.25rem", height: "0.5rem", borderRadius: "9999px", background: "#87E64B" }}
+            style={{ width: "0.25rem", height: "0.5rem", borderRadius: "9999px", background: "var(--color-primary)" }}
           />
         </motion.div>
       </div>

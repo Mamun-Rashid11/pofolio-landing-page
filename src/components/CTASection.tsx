@@ -17,7 +17,7 @@ export default function CTASection() {
       <div className="section-shell">
         <div
           className="relative overflow-hidden px-6 py-20 md:px-16 md:py-28 text-center rounded-[3rem]"
-          style={{ background: "#0a0a0a" }}
+          style={{ background: "oklch(0.04 0 0)" }}
         >
           {/* Radial glow */}
           <div
@@ -35,8 +35,8 @@ export default function CTASection() {
               className="absolute hidden lg:flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold"
               style={{
                 ...pill.style,
-                background: pill.type === "brand" ? "#87E64B" : "rgba(255,255,255,0.07)",
-                color: pill.type === "brand" ? "#18181b" : "rgba(255,255,255,0.5)",
+                background: pill.type === "brand" ? "var(--color-primary)" : "rgba(255,255,255,0.07)",
+                color: pill.type === "brand" ? "var(--color-foreground)" : "rgba(255,255,255,0.5)",
                 border: pill.type === "brand" ? "none" : "1px solid rgba(255,255,255,0.06)",
               }}
               animate={{ y: [-8, 8, -8] }}
@@ -58,21 +58,21 @@ export default function CTASection() {
             whileInView="visible"
             viewport={viewportConfig}
           >
-            <motion.p variants={fadeUpBlur} className="eyebrow-hand" style={{ color: "#a1a1aa" }}>
+            <motion.p variants={fadeUpBlur} className="eyebrow-hand text-zinc-400">
               Early access
             </motion.p>
             <motion.h2
               variants={fadeUpBlur}
+              className="text-zinc-100"
               style={{
                 fontSize: "clamp(2rem, 5vw, 3.5rem)",
                 fontWeight: 700,
                 letterSpacing: "-0.02em",
                 lineHeight: 1.1,
-                color: "#f4f4f5",
               }}
             >
               Everything you need.{" "}
-              <span style={{ color: "#87E64B" }}>Free to start.</span>
+              <span className="text-primary">Free to start.</span>
             </motion.h2>
             <motion.p
               variants={fadeUpBlur}
@@ -102,25 +102,24 @@ export default function CTASection() {
                 required
                 autoComplete="email"
                 placeholder="you@studio.com"
+                className="text-zinc-100"
                 style={{
                   minHeight: "3.25rem",
                   borderRadius: "9999px",
                   border: "1px solid rgba(255,255,255,0.12)",
                   background: "rgba(255,255,255,0.06)",
                   padding: "0 1.25rem",
-                  color: "#f4f4f5",
                   outline: "none",
                   fontSize: "0.9375rem",
                 }}
               />
               <button
                 type="submit"
-                className="flex items-center justify-between"
+                className="flex items-center justify-between text-foreground"
                 style={{
                   minHeight: "3.25rem",
                   borderRadius: "9999px",
-                  background: "#ffffff",
-                  color: "#18181b",
+                  background: "var(--color-background)",
                   fontWeight: 700,
                   fontSize: "0.9375rem",
                   border: "none",
@@ -131,15 +130,16 @@ export default function CTASection() {
               >
                 <span>Create Your Free Account</span>
                 <span
+                  className="text-foreground"
                   style={{
                     width: "2.25rem", height: "2.25rem",
                     borderRadius: "9999px",
-                    background: "#87E64B",
+                    background: "var(--color-primary)",
                     display: "flex", alignItems: "center", justifyContent: "center",
                     flexShrink: 0,
                   }}
                 >
-                  <ArrowRight size={16} color="#18181b" />
+                  <ArrowRight size={16} />
                 </span>
               </button>
               <p style={{ textAlign: "center", fontSize: "0.75rem", fontWeight: 600, color: "rgba(255,255,255,0.3)", margin: 0 }}>

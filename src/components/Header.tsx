@@ -55,15 +55,8 @@ export default function Header() {
       >
         {/* Logo */}
         <a href="#" className="flex items-center gap-2.5 no-underline" aria-label="Pofolio home">
-          <span
-            style={{
-              display: "grid", placeItems: "center",
-              width: "2rem", height: "2rem",
-              borderRadius: "0.5rem", background: "#18181b",
-              color: "#fff", fontWeight: 900, fontSize: "0.9375rem",
-            }}
-          >P</span>
-          <span style={{ fontSize: "1rem", fontWeight: 900, color: "#18181b" }}>Pofolio</span>
+          <span className="grid place-items-center w-8 h-8 rounded-lg bg-foreground text-white font-black text-[0.9375rem]">P</span>
+          <span className="text-base font-black text-foreground">Pofolio</span>
         </a>
 
         {/* Nav */}
@@ -74,15 +67,14 @@ export default function Header() {
               href={`#${link.id}`}
               onClick={(e) => scrollTo(e, link.id)}
               className="relative px-4 py-2 text-sm font-semibold no-underline"
-              style={{ color: active === link.id ? "#18181b" : "#71717a" }}
+              style={{ color: active === link.id ? "var(--color-foreground)" : "var(--color-muted-fg)" }}
             >
               {link.label}
               <AnimatePresence>
                 {active === link.id && (
                   <motion.span
                     layoutId="activeNav"
-                    className="absolute -bottom-0.5 left-2 right-2 h-0.5 rounded-full"
-                    style={{ background: "#87E64B" }}
+                    className="absolute -bottom-0.5 left-2 right-2 h-0.5 rounded-full bg-primary"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
