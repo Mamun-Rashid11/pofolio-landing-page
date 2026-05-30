@@ -1,13 +1,7 @@
 "use client"
 import { useEffect, useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-
-const navLinks = [
-  { label: "Features", href: "#features" },
-  { label: "How it works", href: "#workflow" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
-]
+import { navLinks } from "../data/nav"
 
 export default function Header() {
   const [hidden, setHidden] = useState(false)
@@ -24,9 +18,9 @@ export default function Header() {
 
       // highlight active section
       for (const link of [...navLinks].reverse()) {
-        const el = document.querySelector(link.href)
+        const el = document.getElementById(link.id)
         if (el && el.getBoundingClientRect().top <= 120) {
-          setActive(link.href)
+          setActive(link.id)
           return
         }
       }
@@ -36,9 +30,9 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault()
-    const el = document.querySelector(href)
+    const el = document.getElementById(id)
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" })
   }
 
@@ -61,34 +55,26 @@ export default function Header() {
       >
         {/* Logo */}
         <a href="#" className="flex items-center gap-2.5 no-underline" aria-label="Pofolio home">
-          <span
-            style={{
-              display: "grid", placeItems: "center",
-              width: "2rem", height: "2rem",
-              borderRadius: "0.5rem", background: "#18181b",
-              color: "#fff", fontWeight: 900, fontSize: "0.9375rem",
-            }}
-          >P</span>
-          <span style={{ fontSize: "1rem", fontWeight: 900, color: "#18181b" }}>Pofolio</span>
+          <span className="grid place-items-center w-8 h-8 rounded-lg bg-foreground text-white font-black text-[0.9375rem]">P</span>
+          <span className="text-base font-black text-foreground">Pofolio</span>
         </a>
 
         {/* Nav */}
         <nav className="hidden md:flex items-center gap-1" aria-label="Primary navigation">
           {navLinks.map((link) => (
             <a
-              key={link.href}
-              href={link.href}
-              onClick={(e) => scrollTo(e, link.href)}
+              key={link.id}
+              href={`#${link.id}`}
+              onClick={(e) => scrollTo(e, link.id)}
               className="relative px-4 py-2 text-sm font-semibold no-underline"
-              style={{ color: active === link.href ? "#18181b" : "#71717a" }}
+              style={{ color: active === link.id ? "var(--color-foreground)" : "var(--color-muted-fg)" }}
             >
               {link.label}
               <AnimatePresence>
-                {active === link.href && (
+                {active === link.id && (
                   <motion.span
                     layoutId="activeNav"
-                    className="absolute -bottom-0.5 left-2 right-2 h-0.5 rounded-full"
-                    style={{ background: "#87E64B" }}
+                    className="absolute -bottom-0.5 left-2 right-2 h-0.5 rounded-full bg-primary"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}

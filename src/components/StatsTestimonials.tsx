@@ -1,31 +1,10 @@
 import { motion } from "framer-motion"
 import { fadeUpBlur, staggerContainerSlow, viewportConfig } from "../lib/motion"
-
-const stats = [
-  { value: "500+", label: "Invoices generated" },
-  { value: "200+", label: "Freelancers using Pofolio" },
-  { value: "12", label: "Currencies supported" },
-  { value: "5", label: "Invoice templates" },
-]
-
-const testimonials = [
-  {
-    quote: "I used to bounce between three apps just to send one invoice. Pofolio cut that down to one step.",
-    author: "Web designer, freelance",
-  },
-  {
-    quote: "The Website Vault alone was worth it. I had client passwords spread across sticky notes and emails.",
-    author: "Freelance developer",
-  },
-  {
-    quote: "My portfolio used to be a static site I updated twice a year. Now it reflects my actual work automatically.",
-    author: "Brand designer, freelance",
-  },
-]
+import { stats, testimonials } from "../data/testimonials"
 
 export default function StatsTestimonials() {
   return (
-    <section className="py-24 md:py-32" style={{ background: "#18181b" }}>
+    <section className="py-24 md:py-32" style={{ background: "var(--color-foreground)" }}>
       <div className="section-shell">
         <motion.p
           variants={fadeUpBlur}
@@ -33,7 +12,7 @@ export default function StatsTestimonials() {
           whileInView="visible"
           viewport={viewportConfig}
           className="eyebrow-hand pb-8"
-          style={{ color: "#a1a1aa" }}
+          className="text-zinc-400"
         >
           Built for the way freelancers actually work
         </motion.p>
@@ -49,10 +28,10 @@ export default function StatsTestimonials() {
         >
           {stats.map((s) => (
             <motion.div key={s.label} variants={fadeUpBlur}>
-              <strong style={{ display: "block", fontSize: "3rem", fontWeight: 700, color: "#f4f4f5", lineHeight: 1 }}>
+              <strong className="text-zinc-100" style={{ display: "block", fontSize: "3rem", fontWeight: 700, lineHeight: 1 }}>
                 {s.value}
               </strong>
-              <span style={{ display: "block", marginTop: "0.5rem", fontSize: "0.875rem", fontWeight: 600, color: "#71717a" }}>
+              <span className="text-muted-fg" style={{ display: "block", marginTop: "0.5rem", fontSize: "0.875rem", fontWeight: 600 }}>
                 {s.label}
               </span>
             </motion.div>
@@ -79,11 +58,11 @@ export default function StatsTestimonials() {
               }}
             >
               {/* Quote mark */}
-              <div style={{ fontSize: "2rem", color: "#87E64B", lineHeight: 1, marginBottom: "1rem" }}>"</div>
+              <div className="text-primary" style={{ fontSize: "2rem", lineHeight: 1, marginBottom: "1rem" }}>"</div>
               <p style={{ lineHeight: 1.75, color: "rgba(255,255,255,0.7)", margin: 0, fontSize: "0.9375rem" }}>
                 {t.quote}
               </p>
-              <p style={{ marginTop: "1.25rem", fontSize: "0.875rem", fontWeight: 700, color: "#87E64B" }}>
+              <p className="text-primary" style={{ marginTop: "1.25rem", fontSize: "0.875rem", fontWeight: 700 }}>
                 {t.author}
               </p>
             </motion.article>

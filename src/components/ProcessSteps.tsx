@@ -76,7 +76,7 @@ export default function ProcessSteps() {
                 rotate: step.rotate,
                 minHeight: "280px",
                 borderRadius: "2rem",
-                borderColor: "#e4e4e7",
+                borderColor: "var(--color-border)",
                 boxShadow: "0 4px 24px rgba(0,0,0,0.07)",
               }}
             >
@@ -94,10 +94,10 @@ export default function ProcessSteps() {
                 {step.step}
               </span>
               <div>
-                <h3 style={{ fontWeight: 700, fontSize: "1rem", color: "#18181b", marginBottom: "0.5rem" }}>
+                <h3 className="text-foreground" style={{ fontWeight: 700, fontSize: "1rem", marginBottom: "0.5rem" }}>
                   {step.title}
                 </h3>
-                <p style={{ fontSize: "0.875rem", lineHeight: 1.65, color: "#71717a", margin: 0 }}>
+                <p className="text-muted-fg" style={{ fontSize: "0.875rem", lineHeight: 1.65, margin: 0 }}>
                   {step.desc}
                 </p>
               </div>

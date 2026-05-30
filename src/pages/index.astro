@@ -8,133 +8,10 @@ import ProcessSteps from "../components/ProcessSteps";
 import StatsTestimonials from "../components/StatsTestimonials";
 import CTASection from "../components/CTASection";
 import FAQSection from "../components/FAQSection";
+import { features } from "../data/features";
+import { pricingFree, pricingPro } from "../data/pricing";
+import { comparison, highlightValues } from "../data/comparison";
 
-const features = [
-  {
-    eyebrow: "Invoice Generator",
-    headline: "Professional invoices in seconds.",
-    body: "Create professional PDF invoices in seconds. Choose from 5 designed templates: Classic, Modern, Minimal, Bold, or Elegant. Set your brand color, add your logo, select a bank account, and send. Need to bill an international client? Toggle on IBAN, Incoterms, HS codes, Tax ID, Governing Law, and Retention of Title, all per invoice.",
-    callouts: [
-      "5 professional PDF templates",
-      "12 optional international compliance fields",
-      "Auto-fill line items from saved projects",
-      "Shareable invoice link, no client login needed",
-      "12 currency options (USD, EUR, GBP, BDT + more)",
-    ],
-    videoId: "sBOVbHHJaFI",
-    videoTitle: "Pofolio Invoice Generator Demo",
-    flip: false,
-  },
-  {
-    eyebrow: "Client & Project Management",
-    headline: "Every client. Every project. In view.",
-    body: "Your full client directory in one place. See every client's total invoiced, total paid, outstanding balance, and monthly retainer at a glance. Projects track status, service lists with individual pricing, and connect directly to invoices.",
-    callouts: [
-      "Client profiles with full financial history",
-      "Company records with logo upload",
-      "Projects feed directly into invoice quick-fill",
-      "4 project statuses with service-level pricing",
-    ],
-    videoId: "sBOVbHHJaFI",
-    videoTitle: "Pofolio Client & Project Management Demo",
-    flip: true,
-  },
-  {
-    eyebrow: "Website Vault",
-    headline: "Every credential. One click.",
-    body: "Stop hunting through email threads for a client's WordPress password. The Website Vault stores every credential in one searchable list: admin URL, login email, username, password, and hosting provider. Passwords are masked by default.",
-    callouts: [
-      "Masked passwords, click-to-reveal",
-      "Copy individual fields or everything at once",
-      "Searchable by client, URL, email, or hosting provider",
-      "No third-party password manager needed",
-    ],
-    videoId: "sBOVbHHJaFI",
-    videoTitle: "Pofolio Website Vault Demo",
-    flip: false,
-  },
-  {
-    eyebrow: "Built-In Portfolio",
-    headline: "Your portfolio updates itself.",
-    body: "Pofolio generates a public portfolio page directly from your app data. Completed projects become your work showcase. Submitted client reviews become your testimonials. Visitors can browse your work and submit a project inquiry.",
-    callouts: [
-      "Auto-built from your real project data",
-      "Live testimonials from client reviews",
-      "Client logo carousel from company records",
-      "Embedded Discovery Form for inbound leads",
-    ],
-    videoId: "sBOVbHHJaFI",
-    videoTitle: "Pofolio Portfolio Demo",
-    flip: true,
-  },
-  {
-    eyebrow: "Discovery Form + Price Estimator",
-    headline: "Leads that qualify themselves.",
-    body: "Share your public Discovery Form before you even talk. They fill in project type, features, budget, location, and timeline. You get all of that in your Inquiries inbox the moment they submit.",
-    callouts: [
-      "Public form, no login required for clients",
-      "Real-time price estimate shown as they fill it",
-      "Submissions appear instantly in your Inquiries inbox",
-      "Internal estimator for quoting new projects",
-    ],
-    videoId: "sBOVbHHJaFI",
-    videoTitle: "Pofolio Discovery Form Demo",
-    flip: false,
-  },
-  {
-    eyebrow: "Maintenance Plans",
-    headline: "Recurring revenue. Zero spreadsheets.",
-    body: "Track every website maintenance contract in one list. Set the client, price, currency, and billing status. Add a custom checklist per plan. When it's time to bill, hit Bill Now.",
-    callouts: [
-      "Active / Paused / Cancelled statuses",
-      "Custom task checklist per plan",
-      "One-click invoice generation",
-      "Monthly retainer total on your Dashboard",
-    ],
-    videoId: "sBOVbHHJaFI",
-    videoTitle: "Pofolio Maintenance Plans Demo",
-    flip: true,
-  },
-];
-
-const comparison = [
-  ["Professional invoice PDFs", "5 templates", "Basic", "Limited", "Manual"],
-  ["International compliance (IBAN, Incoterms, HS codes)", "Built-in", "Partial", "No", "DIY"],
-  ["Website credential vault", "Built-in", "No", "No", "No"],
-  ["Public portfolio page", "Built-in", "No", "No", "No"],
-  ["Client Discovery Form", "Built-in", "No", "Basic", "DIY"],
-  ["Shareable invoice link (no login)", "Built-in", "No", "No", "No"],
-  ["Testimonial request links", "Built-in", "No", "No", "No"],
-  ["Maintenance plan billing", "Built-in", "No", "Partial", "DIY"],
-  ["Built for freelancers", "Yes", "No", "Partial", "No"],
-  ["Setup required", "None", "Moderate", "Moderate", "Extensive"],
-];
-
-const highlightValues = new Set(["Built-in", "Yes", "None", "5 templates"]);
-
-const pricingFree = [
-  "Dashboard with financial overview",
-  "Client and company management",
-  "Project tracking",
-  "Invoice generator (Classic template)",
-  "Invoice archive with status management",
-  "Shareable invoice links",
-  "Website Vault",
-  "Maintenance plan tracking",
-  "Discovery Form (public)",
-  "Price Estimator",
-  "Testimonials + Review Form",
-  "Public Portfolio page",
-  "Cloud sync + offline fallback",
-];
-
-const pricingPro = [
-  "Everything in Free",
-  "All 5 invoice PDF templates",
-  "Modern, Minimal, Bold, and Elegant templates",
-  "Advanced international compliance fields",
-  "Priority support",
-];
 
 
 const marqueeKeywords = [
@@ -186,7 +63,9 @@ const marqueeKeywords = [
       </div>
 
       <!-- Services island -->
-      <ServicesSection client:visible />
+      <div id="features">
+        <ServicesSection client:visible />
+      </div>
 
       <!-- Feature showcase (static Astro, restyled) -->
       <section style="background:#ffffff;">
@@ -214,7 +93,7 @@ const marqueeKeywords = [
               <!-- Text side -->
               <div style={feature.flip ? "order:2;" : ""}>
                 <p style="font-family:var(--font-hand); font-size:1.25rem; font-weight:500; color:#87E64B; margin-bottom:0.75rem;">
-                  {feature.eyebrow}
+                  {feature.title}
                 </p>
                 <h3 style="font-size:clamp(1.5rem,3vw,2rem); font-weight:700; letter-spacing:-0.02em; color:#18181b; line-height:1.2; margin:0 0 1rem;">
                   {feature.headline}
@@ -258,7 +137,9 @@ const marqueeKeywords = [
       <StatsTestimonials client:visible />
 
       <!-- Process Steps island -->
-      <ProcessSteps client:visible />
+      <div id="workflow">
+        <ProcessSteps client:visible />
+      </div>
 
       <!-- Comparison table (static Astro, restyled) -->
       <section style="background:oklch(0.97 0 0); border-top:1px solid #e4e4e7; padding:6rem 0;">
@@ -281,17 +162,17 @@ const marqueeKeywords = [
               <tbody>
                 {comparison.map((row) => (
                   <tr style="border-bottom:1px solid #f4f4f5;" class="hover:bg-zinc-50 transition-colors">
-                    <td style="padding:1rem; font-weight:600; color:#18181b;">{row[0]}</td>
+                    <td style="padding:1rem; font-weight:600; color:#18181b;">{row.feature}</td>
                     <td style="padding:1rem; text-align:center;">
                       <span
-                        style={`border-radius:9999px; padding:0.2rem 0.75rem; font-size:0.75rem; font-weight:700; ${highlightValues.has(row[1]) ? "background:#87E64B; color:#18181b;" : "background:#f4f4f5; color:#71717a;"}`}
+                        style={`border-radius:9999px; padding:0.2rem 0.75rem; font-size:0.75rem; font-weight:700; ${highlightValues.has(row.pofolio) ? "background:#87E64B; color:#18181b;" : "background:#f4f4f5; color:#71717a;"}`}
                       >
-                        {row[1]}
+                        {row.pofolio}
                       </span>
                     </td>
-                    <td style="padding:1rem; text-align:center; color:#71717a;">{row[2]}</td>
-                    <td style="padding:1rem; text-align:center; color:#71717a;">{row[3]}</td>
-                    <td style="padding:1rem; text-align:center; color:#71717a;">{row[4]}</td>
+                    <td style="padding:1rem; text-align:center; color:#71717a;">{row.freshbooks}</td>
+                    <td style="padding:1rem; text-align:center; color:#71717a;">{row.bonsai}</td>
+                    <td style="padding:1rem; text-align:center; color:#71717a;">{row.notion}</td>
                   </tr>
                 ))}
               </tbody>
@@ -374,7 +255,9 @@ const marqueeKeywords = [
       </section>
 
       <!-- FAQ island -->
-      <FAQSection client:visible />
+      <div id="faq">
+        <FAQSection client:visible />
+      </div>
 
       <!-- CTA island -->
       <CTASection client:visible />
