@@ -9,45 +9,9 @@ import StatsTestimonials from "../components/StatsTestimonials";
 import CTASection from "../components/CTASection";
 import FAQSection from "../components/FAQSection";
 import { features } from "../data/features";
+import { pricingFree, pricingPro } from "../data/pricing";
+import { comparison, highlightValues } from "../data/comparison";
 
-const comparison = [
-  ["Professional invoice PDFs", "5 templates", "Basic", "Limited", "Manual"],
-  ["International compliance (IBAN, Incoterms, HS codes)", "Built-in", "Partial", "No", "DIY"],
-  ["Website credential vault", "Built-in", "No", "No", "No"],
-  ["Public portfolio page", "Built-in", "No", "No", "No"],
-  ["Client Discovery Form", "Built-in", "No", "Basic", "DIY"],
-  ["Shareable invoice link (no login)", "Built-in", "No", "No", "No"],
-  ["Testimonial request links", "Built-in", "No", "No", "No"],
-  ["Maintenance plan billing", "Built-in", "No", "Partial", "DIY"],
-  ["Built for freelancers", "Yes", "No", "Partial", "No"],
-  ["Setup required", "None", "Moderate", "Moderate", "Extensive"],
-];
-
-const highlightValues = new Set(["Built-in", "Yes", "None", "5 templates"]);
-
-const pricingFree = [
-  "Dashboard with financial overview",
-  "Client and company management",
-  "Project tracking",
-  "Invoice generator (Classic template)",
-  "Invoice archive with status management",
-  "Shareable invoice links",
-  "Website Vault",
-  "Maintenance plan tracking",
-  "Discovery Form (public)",
-  "Price Estimator",
-  "Testimonials + Review Form",
-  "Public Portfolio page",
-  "Cloud sync + offline fallback",
-];
-
-const pricingPro = [
-  "Everything in Free",
-  "All 5 invoice PDF templates",
-  "Modern, Minimal, Bold, and Elegant templates",
-  "Advanced international compliance fields",
-  "Priority support",
-];
 
 
 const marqueeKeywords = [
@@ -198,17 +162,17 @@ const marqueeKeywords = [
               <tbody>
                 {comparison.map((row) => (
                   <tr style="border-bottom:1px solid #f4f4f5;" class="hover:bg-zinc-50 transition-colors">
-                    <td style="padding:1rem; font-weight:600; color:#18181b;">{row[0]}</td>
+                    <td style="padding:1rem; font-weight:600; color:#18181b;">{row.feature}</td>
                     <td style="padding:1rem; text-align:center;">
                       <span
-                        style={`border-radius:9999px; padding:0.2rem 0.75rem; font-size:0.75rem; font-weight:700; ${highlightValues.has(row[1]) ? "background:#87E64B; color:#18181b;" : "background:#f4f4f5; color:#71717a;"}`}
+                        style={`border-radius:9999px; padding:0.2rem 0.75rem; font-size:0.75rem; font-weight:700; ${highlightValues.has(row.pofolio) ? "background:#87E64B; color:#18181b;" : "background:#f4f4f5; color:#71717a;"}`}
                       >
-                        {row[1]}
+                        {row.pofolio}
                       </span>
                     </td>
-                    <td style="padding:1rem; text-align:center; color:#71717a;">{row[2]}</td>
-                    <td style="padding:1rem; text-align:center; color:#71717a;">{row[3]}</td>
-                    <td style="padding:1rem; text-align:center; color:#71717a;">{row[4]}</td>
+                    <td style="padding:1rem; text-align:center; color:#71717a;">{row.freshbooks}</td>
+                    <td style="padding:1rem; text-align:center; color:#71717a;">{row.bonsai}</td>
+                    <td style="padding:1rem; text-align:center; color:#71717a;">{row.notion}</td>
                   </tr>
                 ))}
               </tbody>
